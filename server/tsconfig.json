@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
-    "module": "ESNext",         // Enable ES Modules
-    "moduleResolution": "Node", // Resolve modules like Node.js does
-    "esModuleInterop": true,    // Enable default imports compatibility
-    "target": "ESNext",         // Use the latest ECMAScript features
-    "resolveJsonModule": true,  // Allow importing JSON files
-    "outDir": "dist",           // Output compiled files to the dist folder
-    "rootDir": "src",           // Source folder for TypeScript files
-    "allowJs": true,            // Allow JavaScript files
-    "skipLibCheck": true,       // Skip type checking for declaration files
-    "strict": true              // Enable strict type checking
+    "target": "ESNext",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true
   },
   "include": ["src"],
-  "typeRoots": ["./node_modules/@types", "./src/types"]
+  "exclude": ["node_modules"]
 }
-

@@ -1,22 +1,17 @@
-import express from 'express';
+import express, { Application } from 'express';
 import path from 'node:path';
 import db from './config/connection.js';
 import routes from './routes/index.js';
 import { ApolloServer } from 'apollo-server-express';
 import { typeDefs, resolvers } from './graphql/schema.ts';
+import jwt from 'jsonwebtoken';
 
-const app = express();
+const app: Application = express();
 const server = new ApolloServer({ typeDefs, resolvers });
 const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// Set up Apollo Server with Express
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-});
 
 const server = new ApolloServer({
   typeDefs,
@@ -50,7 +45,7 @@ server.start().then(() => {
 
   app.use(routes);
 
-  db.once('open', () => {
+  mongoose.connection.once('open', () => {
     app.listen(PORT, () =>
       console.log(`🌍 Now listening on localhost:${PORT} - GraphQL at /graphql`)
     );

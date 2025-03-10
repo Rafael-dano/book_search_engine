@@ -5,9 +5,9 @@
   "main": "dist/server.js",
   "type": "module",
   "scripts": {
-    "start":"node dist/server.js",
     "build": "tsc",
     "start": "node dist/server.js",
+    "dev": "ts-node server/src/server.ts",
     "watch": "nodemon dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
