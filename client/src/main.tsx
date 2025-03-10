@@ -8,31 +8,25 @@ import SearchBooks from './pages/SearchBooks'
 import SavedBooks from './pages/SavedBooks'
 
 // Set up Apollo Client
+const cache = new InMemoryCache();
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql', // Replace with your GraphQL server URI
-  cache: new InMemoryCache(),
-})
+  uri: '/graphql', // GraphQL endpoint
+  cache,
+});
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <h1 className='display-2'>Wrong page!</h1>,
     children: [
-      {
-        index: true,
-        element: <SearchBooks />
-      }, {
-        path: '/saved',
-        element: <SavedBooks />
-      }
-    ]
-  }
-])
+      { index: true, element: <SearchBooks /> },
+      { path: '/saved', element: <SavedBooks /> },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <ApolloProvider client={client}>
+  <ApolloProvider client={client}> {/* Wrap with ApolloProvider */}
     <RouterProvider router={router} />
   </ApolloProvider>
-)
-
+);
