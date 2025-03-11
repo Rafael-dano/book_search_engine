@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "CommonJS",
+    "module": "ESNext",
     "moduleResolution": "Node",
     "esModuleInterop": true,
-    "strict": true,
+    "target": "ESNext",
     "resolveJsonModule": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "outDir": "dist",
+    "rootDir": "src",
     "allowJs": true,
     "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
-    "allowImportingTsExtensions": true
+    "strict": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true  // <-- Add this line
   },
   "include": ["src"],
-  "exclude": ["node_modules"]
+  "typeRoots": ["./node_modules/@types", "./src/types"]
 }

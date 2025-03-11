@@ -5,9 +5,10 @@ import routes from './routes/index.js';
 import { ApolloServer } from 'apollo-server-express';
 import { typeDefs, resolvers } from './graphql/schema.ts';
 import jwt from 'jsonwebtoken';
+import mongoose from 'mongoose';
 
 const app: Application = express();
-const server = new ApolloServer({ typeDefs, resolvers });
+const myServer = new ApolloServer({ typeDefs, resolvers });
 const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
